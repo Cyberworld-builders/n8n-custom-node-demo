@@ -1,0 +1,42 @@
+{
+    "node": "n8n-nodes-simple-math.SimpleMathNode",
+    "name": "Simple Math",
+    "icon": "fa:calculator",
+    "group": ["transform"],
+    "version": 1,
+    "description": "Performs basic arithmetic operations on two numbers",
+    "defaults": {
+      "name": "Simple Math"
+    },
+    "inputs": ["main"],
+    "outputs": ["main"],
+    "properties": [
+      {
+        "displayName": "Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          { "name": "Add", "value": "add" },
+          { "name": "Subtract", "value": "subtract" },
+          { "name": "Multiply", "value": "multiply" },
+          { "name": "Divide", "value": "divide" }
+        ],
+        "default": "add",
+        "description": "The arithmetic operation to perform"
+      },
+      {
+        "displayName": "Number A",
+        "name": "numberA",
+        "type": "number",
+        "default": 0,
+        "description": "The first number"
+      },
+      {
+        "displayName": "Number B",
+        "name": "numberB",
+        "type": "number",
+        "default": 0,
+        "description": "The second number"
+      }
+    ]
+  }

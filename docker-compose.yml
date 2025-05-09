@@ -1,0 +1,26 @@
+version: "3.8"
+
+# docker run -it --rm \
+#   -p 5678:5678 \
+#   -v n8n_data:/home/node/.n8n \
+#   -v $(pwd):/home/node/.n8n/custom \
+#   -e N8N_CUSTOM_EXTENSIONS=/home/node/.n8n/custom \
+#   n8nio/n8n
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - N8N_EDITOR_BASE_URL=http://localhost:5678
+      - N8N_CUSTOM_EXTENSIONS=/home/node/.n8n/custom
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./:/home/node/.n8n/custom
+    restart: unless-stopped
+volumes:
+  n8n_data:
